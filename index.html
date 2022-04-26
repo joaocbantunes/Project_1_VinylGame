@@ -4,9 +4,35 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <title>VinylGame</title>
   </head>
   <body>
-    <h1>Hello World</h1>
+    <div>
+      <div class="game-intro">
+        <img src="./images/logo.png" alt="" class="logo-img" />
+        <br />
+        <button id="start-button">StartGame</button>
+        <p>Use W A S D</p>
+        <img src="./images/arrows.png" alt="" class="arrows-img" />
+      </div>
+      <div id="game-board"></div>
+      <canvas
+        id="canvas"
+        width="900px"
+        height="600px"
+        style="border: 5px solid black"
+      ></canvas>
+    </div>
+
+    <script src="./controls.js"></script>
+    <script src="/index.js"></script>
+    <script src="/ipod.js"></script>
+    <script src="/player.js"></script>
+    <script src="/spotify.js"></script>
+    <script src="/brush.js"></script>
+    <script src="/prizes.js"></script>
+    <script src="/water.js"></script>
+    <script src="/game.js"></script>
   </body>
 </html>
