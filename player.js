@@ -3,8 +3,8 @@ class Player {
     this.game = game;
     this.x = x;
     this.y = y;
-    this.width = width;
-    this.height = height;
+    this.width = 65;
+    this.height = 65;
     this.img = new Image();
   }
 

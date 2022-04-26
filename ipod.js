@@ -2,9 +2,9 @@ class Ipod {
   constructor(game) {
     this.game = game;
     this.x = 980;
-    this.y = Math.floor(Math.random() * 490);
-    this.width = 60;
-    this.height = 60;
+    this.y = Math.floor(Math.random() * 290);
+    this.width = 41;
+    this.height = 70;
     this.ipod = new Image();
   }
 

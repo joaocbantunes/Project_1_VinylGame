@@ -7,7 +7,7 @@ class Game {
     this.frames = 0;
     this.x = 0;
     this.y = 0;
-    this.canvasWidth = 900;
+    this.canvasWidth = 1100;
     this.canvasHeight = 600;
     this.intervalId = null;
     this.spotify = [];
@@ -55,10 +55,11 @@ class Game {
     this.checkBonus();
     this.checkGameOver();
     this.getScore();
+    this.winningGame();
   }
 
   drawBackground() {
-    this.background.src = "/images/black.jpg";
+    this.background.src = "/images/back.jpg";
     this.ctx.drawImage(
       this.background,
       this.x,
@@ -69,7 +70,7 @@ class Game {
   }
 
   drawEnemie() {
-    if (this.frames % 600 === 0) {
+    if (this.frames % 500 === 0) {
       this.spotify.push(new Spotify(this));
       this.water.push(new Water(this));
       this.ipod.push(new Ipod(this));
@@ -89,11 +90,21 @@ class Game {
     clearInterval(this.intervalId);
   }
 
+  winGame() {
+    this.ctx.font = "200px";
+    this.ctx.fillStyle = "yellow";
+    this.ctx.fillText("YOU WIN! YOU'RE A VINYL RESCUER!", 100, 200);
+    clearInterval(this.intervalId);
+  }
+
   getScore() {
     //let score = 1930 + Math.floor(this.frames / 60);
-    this.ctx.font = "30px verdana";
+    this.ctx.fillStyle = "black";
+    this.ctx.fillRect(880, 570, 170, 150);
+    //this.ctx.fill;
+    this.ctx.font = "20px verdana";
     this.ctx.fillStyle = "green";
-    this.ctx.fillText(`The year is ${this.score}`, 330, 50);
+    this.ctx.fillText(`The year is ${this.score}`, 880, 590);
   }
 
   checkGameOver() {
@@ -120,8 +131,14 @@ class Game {
     if (crashedBrush) {
       this.brush.forEach((brush, i, arr) => {
         arr.splice(i, 1);
-        this.score += 5;
+        this.score += 20;
       });
+    }
+  }
+
+  winningGame() {
+    if (this.score >= 2022) {
+      this.winGame();
     }
   }
 }
