@@ -43,7 +43,7 @@ class Player {
   }*/
 
   draw() {
-    this.img.src = "./docs/assets/images/vinyl.png";
+    this.img.src = "./docs/assets/images/711.gif";
     this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }

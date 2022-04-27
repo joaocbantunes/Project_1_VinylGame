@@ -1,8 +1,8 @@
 class Ipod {
   constructor(game) {
     this.game = game;
-    this.x = 980;
-    this.y = Math.floor(Math.random() * 290);
+    this.x = Math.floor(Math.random() * 900);
+    this.y = 0;
     this.width = 41;
     this.height = 70;
     this.ipod = new Image();
@@ -11,7 +11,7 @@ class Ipod {
   drawIpod() {
     this.ipod.src = "./docs/assets/images/ipod.png";
     this.game.ctx.drawImage(this.ipod, this.x, this.y, this.width, this.height);
-    this.x -= 2;
+    this.y += 2;
   }
 
   left() {

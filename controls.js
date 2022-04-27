@@ -20,7 +20,7 @@ class Controls {
           break;
 
         case "KeyD":
-          if (this.player.x + this.player.width < 1100) {
+          if (this.player.x + this.player.width < 900) {
             this.player.x += 25;
           }
           break;

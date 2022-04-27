@@ -4,14 +4,15 @@ class Game {
     this.ctx = this.canvas.getContext("2d");
     this.player = null;
     this.background = new Image();
+    this.winimage = new Image();
     this.frames = 0;
     this.x = 0;
     this.y = 0;
-    this.canvasWidth = 1100;
+    this.canvasWidth = 900;
     this.canvasHeight = 600;
     this.intervalId = null;
     this.spotify = [];
-    this.water = [];
+    this.cassette = [];
     this.brush = [];
     this.ipod = [];
     this.score = 1930;
@@ -38,8 +39,8 @@ class Game {
     this.spotify.forEach((enemie) => {
       enemie.drawSpotify();
     });
-    this.water.forEach((enemie) => {
-      enemie.drawWater();
+    this.cassette.forEach((enemie) => {
+      enemie.drawCassette();
     });
     this.ipod.forEach((enemie) => {
       enemie.drawIpod();
@@ -70,9 +71,9 @@ class Game {
   }
 
   drawEnemie() {
-    if (this.frames % 500 === 0) {
+    if (this.frames % 350 === 0) {
       this.spotify.push(new Spotify(this));
-      this.water.push(new Water(this));
+      this.cassette.push(new Cassette(this));
       this.ipod.push(new Ipod(this));
     }
   }
@@ -84,27 +85,44 @@ class Game {
   }
 
   stopGame() {
-    this.ctx.font = "90px";
+    /*this.ctx.font = "90px";
     this.ctx.fillStyle = "red";
-    this.ctx.fillText("You didn't make it to 2022!", 280, 580);
-    clearInterval(this.intervalId);
+    this.ctx.fillText("You didn't make it to 2022!", 280, 580);*/
+    this.winimage.src = "./docs/assets/images/win_screen.jpg";
+    this.ctx.drawImage(
+      this.winimage,
+      this.x,
+      this.y,
+      this.canvasWidth,
+      this.canvasHeight
+    );
+    //clearInterval(this.intervalId);
+    //this.stopGame();
   }
 
   winGame() {
-    this.ctx.font = "200px";
+    /*this.ctx.font = "200px";
     this.ctx.fillStyle = "yellow";
-    this.ctx.fillText("YOU WIN! YOU'RE A VINYL RESCUER!", 100, 200);
+    this.ctx.fillText("YOU WIN! YOU'RE A VINYL RESCUER!", 100, 200);*/
     clearInterval(this.intervalId);
+    /*this.winimage.src = "./docs/assets/images/win_screen.jpg";
+    this.ctx.drawImage(
+      this.winimage,
+      this.x,
+      this.y,
+      this.canvasWidth,
+      this.canvasHeight
+    );*/
   }
 
   getScore() {
     //let score = 1930 + Math.floor(this.frames / 60);
     this.ctx.fillStyle = "black";
-    this.ctx.fillRect(880, 570, 170, 150);
+    this.ctx.fillRect(670, 560, 320, 100);
     //this.ctx.fill;
-    this.ctx.font = "20px verdana";
+    this.ctx.font = "25px verdana";
     this.ctx.fillStyle = "green";
-    this.ctx.fillText(`The year is ${this.score}`, 880, 590);
+    this.ctx.fillText(`The year is ${this.score}`, 680, 590);
   }
 
   checkGameOver() {
@@ -112,13 +130,13 @@ class Game {
     const crashedSpotify = this.spotify.some(function (spotify) {
       return player.colision(spotify);
     });
-    const crashedWater = this.water.some(function (water) {
-      return player.colision(water);
+    const crashedCassette = this.cassette.some(function (cassette) {
+      return player.colision(cassette);
     });
     const crashedIpod = this.ipod.some(function (ipod) {
       return player.colision(ipod);
     });
-    if (crashedSpotify || crashedWater || crashedIpod) {
+    if (crashedSpotify || crashedCassette || crashedIpod) {
       this.stopGame();
     }
   }

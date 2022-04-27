@@ -1,8 +1,8 @@
 class Spotify {
   constructor(game) {
     this.game = game;
-    this.x = 0;
-    this.y = Math.floor(Math.random() * 300);
+    this.x = 900;
+    this.y = Math.floor(Math.random() * 450);
     this.spotify = new Image();
     this.width = 50;
     this.height = 50;
@@ -13,7 +13,7 @@ class Spotify {
     this.game.ctx.fillStyle = "white";
     this.game.ctx.fillRect(this.spotify, this.y, 50, 50);
     this.game.ctx.drawImage(this.spotify, this.x, this.y, 60, 60);
-    this.x += 2;
+    this.x -= 2;
   }
 
   left() {

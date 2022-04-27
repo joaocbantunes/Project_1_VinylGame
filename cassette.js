@@ -1,18 +1,18 @@
-class Water {
+class Cassette {
   constructor(game) {
     this.game = game;
-    this.x = Math.floor(Math.random() * 1000);
-    this.y = 400;
-    this.water = new Image();
+    this.x = Math.floor(Math.random() * 450);
+    this.y = 0;
+    this.cassette = new Image();
     this.width = 50;
     this.height = 50;
   }
 
-  drawWater() {
-    this.water.src = "./docs/assets/images/water.png";
-    this.game.ctx.drawImage(this.water, this.x, this.y, 40, 80);
+  drawCassette() {
+    this.cassette.src = "./docs/assets/images/cassette.png";
+    this.game.ctx.drawImage(this.cassette, this.x, this.y, 80, 50);
     this.x++;
-    this.y--;
+    this.y++;
   }
 
   left() {
