@@ -9,7 +9,7 @@ class Brush {
   }
 
   drawBrush() {
-    this.brush.src = "./docs/assets/images/brush.png";
+    this.brush.src = "/docs/assets/images/brush.png";
     this.game.ctx.drawImage(this.brush, this.x, this.y, 86, 40);
     this.x++;
     this.y--;
