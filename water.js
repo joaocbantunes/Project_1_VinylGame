@@ -9,7 +9,7 @@ class Water {
   }
 
   drawWater() {
-    this.water.src = "/images/water.png";
+    this.water.src = "./docs/assets/images/water.png";
     this.game.ctx.drawImage(this.water, this.x, this.y, 40, 80);
     this.x++;
     this.y--;
