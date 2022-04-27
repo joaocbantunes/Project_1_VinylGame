@@ -9,7 +9,7 @@ class Spotify {
   }
 
   drawSpotify() {
-    this.spotify.src = "/docs/assets/images/spotify.png";
+    this.spotify.src = "docs/assets/images/spotify.png";
     this.game.ctx.fillStyle = "white";
     this.game.ctx.fillRect(this.spotify, this.y, 50, 50);
     this.game.ctx.drawImage(this.spotify, this.x, this.y, 60, 60);

@@ -4,7 +4,12 @@ class Game {
     this.ctx = this.canvas.getContext("2d");
     this.player = null;
     this.background = new Image();
-    this.gameover = new Image();
+    const gameover = new Image();
+    gameover.addEventListener("load", () => {
+      this.gameover = gameover;
+    });
+    gameover.src = "docs/assets/images/gameover_screen.jpg";
+    //this.gameover = new Image();
     this.winimage = new Image();
     this.frames = 0;
     this.x = 0;
@@ -61,7 +66,7 @@ class Game {
   }
 
   drawBackground() {
-    this.background.src = "/docs/assets/images/back.jpg";
+    this.background.src = "docs/assets/images/back.jpg";
     this.ctx.drawImage(
       this.background,
       this.x,
@@ -90,7 +95,7 @@ class Game {
     this.ctx.fillStyle = "red";
     this.ctx.fillText("You didn't make it to 2022!", 280, 580);*/
     clearInterval(this.intervalId);
-    this.gameover.src = "/docs/assets/images/gameover_screen.jpg";
+    //this.gameover.src = "/docs/assets/images/gameover_screen.jpg";
     this.ctx.drawImage(
       this.gameover,
       this.x,
@@ -107,7 +112,7 @@ class Game {
     this.ctx.fillStyle = "yellow";
     this.ctx.fillText("YOU WIN! YOU'RE A VINYL RESCUER!", 100, 200);*/
     //clearInterval(this.intervalId);
-    this.winimage.src = "/docs/assets/images/win_screen.jpg";
+    this.winimage.src = "docs/assets/images/win_screen.jpg";
     this.ctx.drawImage(
       this.winimage,
       this.x,

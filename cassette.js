@@ -9,7 +9,7 @@ class Cassette {
   }
 
   drawCassette() {
-    this.cassette.src = "/docs/assets/images/cassette.png";
+    this.cassette.src = "docs/assets/images/cassette.png";
     this.game.ctx.drawImage(this.cassette, this.x, this.y, 80, 50);
     this.x++;
     this.y++;
