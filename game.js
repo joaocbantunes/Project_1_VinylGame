@@ -21,11 +21,15 @@ class Game {
     this.cassette = [];
     this.brush = [];
     this.ipod = [];
+    this.gameSound = new Audio("docs/assets/sounds/gamesound.mp3");
+    this.mySoundWin = new Audio("docs/assets/sounds/wingame.mp3");
+    this.gameOverSound = new Audio("docs/assets/sounds/gameoversound.mp3");
     this.score = 1930;
     this.newInterval = null;
   }
 
   start() {
+    this.gameSound.play();
     this.player = new Player(this, 460, 190, 60, 40);
     const controls = new Controls(this);
     controls.keyEvents();
@@ -94,6 +98,8 @@ class Game {
     /*this.ctx.font = "90px";
     this.ctx.fillStyle = "red";
     this.ctx.fillText("You didn't make it to 2022!", 280, 580);*/
+    this.gameSound.pause();
+    this.gameOverSound.play();
     clearInterval(this.intervalId);
     //this.gameover.src = "/docs/assets/images/gameover_screen.jpg";
     this.ctx.drawImage(
@@ -112,6 +118,8 @@ class Game {
     this.ctx.fillStyle = "yellow";
     this.ctx.fillText("YOU WIN! YOU'RE A VINYL RESCUER!", 100, 200);*/
     //clearInterval(this.intervalId);
+    this.gameSound.pause();
+    this.mySoundWin.play();
     this.winimage.src = "docs/assets/images/win_screen.jpg";
     this.ctx.drawImage(
       this.winimage,
