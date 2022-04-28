@@ -3,8 +3,12 @@ class Player {
     this.game = game;
     this.x = x;
     this.y = y;
-    this.width = 65;
-    this.height = 65;
+    this.spriteWidth = 1024;
+    this.spriteHeight = 64;
+    this.width = 64;
+    this.height = 64;
+    this.frameX = 9;
+    this.frameY = 0;
     this.img = new Image();
   }
 
@@ -43,7 +47,27 @@ class Player {
   }*/
 
   draw() {
-    this.img.src = "docs/assets/images/711.gif";
-    this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    //let img = new Image();
+    this.img.src = "docs/assets/images/spritesheet.png";
+    this.game.ctx.drawImage(
+      this.img,
+      this.frameX * this.width,
+      this.frameY * this.height,
+      this.width,
+      this.height,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
+
+  }
+
+  animate() {
+    if(this.frameX == 15) {
+      this.frameX = 0
+    } else {
+      this.frameX++
+    }
   }
 }

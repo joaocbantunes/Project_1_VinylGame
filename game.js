@@ -30,7 +30,7 @@ class Game {
 
   start() {
     this.gameSound.play();
-    this.player = new Player(this, 460, 190, 60, 40);
+    this.player = new Player(this, 460, 190, 64, 64);
     const controls = new Controls(this);
     controls.keyEvents();
     this.intervalId = setInterval(() => {
@@ -42,8 +42,10 @@ class Game {
   }
 
   update() {
+    this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     this.drawBackground();
     this.player.draw();
+    this.player.animate();
     this.drawEnemie();
     this.drawBonus();
     this.spotify.forEach((enemie) => {
