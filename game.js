@@ -83,7 +83,7 @@ class Game {
   }
 
   drawEnemie() {
-    if (this.frames % 350 === 0) {
+    if (this.frames % 302 === 0) {
       this.spotify.push(new Spotify(this));
       this.cassette.push(new Cassette(this));
       this.ipod.push(new Ipod(this));
@@ -91,7 +91,7 @@ class Game {
   }
 
   drawBonus() {
-    if (this.frames % 600 === 0) {
+    if (this.frames % 340 === 0) {
       this.brush.push(new Brush(this));
     }
   }
@@ -121,6 +121,7 @@ class Game {
     this.ctx.fillText("YOU WIN! YOU'RE A VINYL RESCUER!", 100, 200);*/
     //clearInterval(this.intervalId);
     this.gameSound.pause();
+    this.gameOverSound.pause();
     this.mySoundWin.play();
     this.winimage.src = "docs/assets/images/win_screen.jpg";
     this.ctx.drawImage(
@@ -130,6 +131,7 @@ class Game {
       this.canvasWidth,
       this.canvasHeight
     );
+    //clearInterval(this.intervalId);
   }
 
   getScore() {

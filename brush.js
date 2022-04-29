@@ -2,7 +2,7 @@ class Brush {
   constructor(game) {
     this.game = game;
     this.x = Math.floor(Math.random() * 400);
-    this.y = Math.floor(Math.random() * 800);
+    this.y = 600;
     this.brush = new Image();
     this.width = 86;
     this.height = 40;

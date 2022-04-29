@@ -11,7 +11,7 @@ class Ipod {
   drawIpod() {
     this.ipod.src = "docs/assets/images/ipod.png";
     this.game.ctx.drawImage(this.ipod, this.x, this.y, this.width, this.height);
-    this.y += 2;
+    this.y += 2.5;
   }
 
   left() {
